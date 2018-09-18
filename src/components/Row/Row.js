@@ -1,70 +1,80 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import React from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
 
-import { themeProvider } from '../../theme';
-import { filterProps, mediaQuery, gutter, CSSProperty } from '../../helpers';
+import { themeProvider } from "../../theme";
+import { filterProps, mediaQuery, gutter, CSSProperty } from "../../helpers";
 
 const Row = styled(props =>
-  React.createElement(props.elementType, filterProps(props, Row.propTypes)),
+  React.createElement(props.elementType, filterProps(props, Row.propTypes))
 )`
   // Initial component property
   box-sizing: border-box;
 
-  ${props => themeProvider.breakpointsKeys(props).map(breakpoint => mediaQuery(props)[breakpoint]`
+  ${props =>
+    themeProvider.breakpointsKeys(props).map(
+      breakpoint => mediaQuery(props)[breakpoint]`
     // Generate gutter
     ${gutter.row(props, breakpoint)}
 
     // Responsive Flexbox properties
-    ${CSSProperty(props, breakpoint, 'display')}
-    ${CSSProperty(props, breakpoint, 'flex-direction')}
-    ${CSSProperty(props, breakpoint, 'flex-wrap')}
-    ${CSSProperty(props, breakpoint, 'justify-content')}
-    ${CSSProperty(props, breakpoint, 'align-items')}
-    ${CSSProperty(props, breakpoint, 'align-content')}
-    ${CSSProperty(props, breakpoint, 'flex')}
-  `)}
+    ${CSSProperty(props, breakpoint, "display")}
+    ${CSSProperty(props, breakpoint, "flex-direction")}
+    ${CSSProperty(props, breakpoint, "flex-wrap")}
+    ${CSSProperty(props, breakpoint, "justify-content")}
+    ${CSSProperty(props, breakpoint, "align-items")}
+    ${CSSProperty(props, breakpoint, "align-content")}
+    ${CSSProperty(props, breakpoint, "flex")}
+  `
+    )};
 `;
 
 Row.defaultProps = {
-  display: 'flex',
-  flexDirection: 'row',
-  flexWrap: 'wrap',
-  justifyContent: 'flex-start',
-  alignItems: 'stretch',
-  alignContent: 'stretch',
-  elementType: 'div',
+  display: "flex",
+  flexDirection: "row",
+  flexWrap: "wrap",
+  justifyContent: "flex-start",
+  alignItems: "stretch",
+  alignContent: "stretch",
+  elementType: "div"
 };
 
-const displayOptions = ['flex', 'inline-flex'];
-const flexDirectionOptions = ['row', 'row-reverse', 'column', 'column-reverse'];
-const flexWrapOptions = ['nowrap', 'wrap', 'wrap-reverse'];
-const justifyContentOptions = ['flex-start', 'flex-end', 'center', 'space-between', 'space-around'];
-const alignItemsOptions = ['flex-start', 'flex-end', 'center', 'baseline', 'stretch'];
-const alignContentOptions = ['flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'stretch'];
+const displayOptions = ["flex", "inline-flex"];
+const flexDirectionOptions = ["row", "row-reverse", "column", "column-reverse"];
+const flexWrapOptions = ["nowrap", "wrap", "wrap-reverse"];
+const justifyContentOptions = [
+  "flex-start",
+  "flex-end",
+  "center",
+  "space-between",
+  "space-around"
+];
+const alignItemsOptions = [
+  "flex-start",
+  "flex-end",
+  "center",
+  "baseline",
+  "stretch"
+];
+const alignContentOptions = [
+  "flex-start",
+  "flex-end",
+  "center",
+  "space-between",
+  "space-around",
+  "stretch"
+];
 
 Row.propTypes = {
   gutter: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.string,
     PropTypes.shape({
-      xs: PropTypes.oneOfType([
-        PropTypes.number,
-        PropTypes.string,
-      ]),
-      sm: PropTypes.oneOfType([
-        PropTypes.number,
-        PropTypes.string,
-      ]),
-      md: PropTypes.oneOfType([
-        PropTypes.number,
-        PropTypes.string,
-      ]),
-      lg: PropTypes.oneOfType([
-        PropTypes.number,
-        PropTypes.string,
-      ]),
-    }),
+      xs: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+      sm: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+      md: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+      lg: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+    })
   ]),
 
   display: PropTypes.oneOfType([
@@ -73,8 +83,8 @@ Row.propTypes = {
       xs: PropTypes.oneOf(displayOptions),
       sm: PropTypes.oneOf(displayOptions),
       md: PropTypes.oneOf(displayOptions),
-      lg: PropTypes.oneOf(displayOptions),
-    }),
+      lg: PropTypes.oneOf(displayOptions)
+    })
   ]),
 
   flexDirection: PropTypes.oneOfType([
@@ -83,8 +93,8 @@ Row.propTypes = {
       xs: PropTypes.oneOf(flexDirectionOptions),
       sm: PropTypes.oneOf(flexDirectionOptions),
       md: PropTypes.oneOf(flexDirectionOptions),
-      lg: PropTypes.oneOf(flexDirectionOptions),
-    }),
+      lg: PropTypes.oneOf(flexDirectionOptions)
+    })
   ]),
 
   flexWrap: PropTypes.oneOfType([
@@ -93,8 +103,8 @@ Row.propTypes = {
       xs: PropTypes.oneOf(flexWrapOptions),
       sm: PropTypes.oneOf(flexWrapOptions),
       md: PropTypes.oneOf(flexWrapOptions),
-      lg: PropTypes.oneOf(flexWrapOptions),
-    }),
+      lg: PropTypes.oneOf(flexWrapOptions)
+    })
   ]),
 
   justifyContent: PropTypes.oneOfType([
@@ -103,8 +113,8 @@ Row.propTypes = {
       xs: PropTypes.oneOf(justifyContentOptions),
       sm: PropTypes.oneOf(justifyContentOptions),
       md: PropTypes.oneOf(justifyContentOptions),
-      lg: PropTypes.oneOf(justifyContentOptions),
-    }),
+      lg: PropTypes.oneOf(justifyContentOptions)
+    })
   ]),
 
   alignItems: PropTypes.oneOfType([
@@ -113,8 +123,8 @@ Row.propTypes = {
       xs: PropTypes.oneOf(alignItemsOptions),
       sm: PropTypes.oneOf(alignItemsOptions),
       md: PropTypes.oneOf(alignItemsOptions),
-      lg: PropTypes.oneOf(alignItemsOptions),
-    }),
+      lg: PropTypes.oneOf(alignItemsOptions)
+    })
   ]),
 
   alignContent: PropTypes.oneOfType([
@@ -123,26 +133,26 @@ Row.propTypes = {
       xs: PropTypes.oneOf(alignContentOptions),
       sm: PropTypes.oneOf(alignContentOptions),
       md: PropTypes.oneOf(alignContentOptions),
-      lg: PropTypes.oneOf(alignContentOptions),
-    }),
-
-    flex: PropTypes.oneOfType([
-      PropTypes.number,
-      PropTypes.string,
-      PropTypes.shape({
-        xs: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-        sm: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-        md: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-        lg: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
-      })
-    ]),
+      lg: PropTypes.oneOf(alignContentOptions)
+    })
   ]),
 
   elementType: PropTypes.string,
 
-  children: PropTypes.node,
+  flex: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+    PropTypes.shape({
+      xs: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+      sm: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+      md: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+      lg: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+    })
+  ]),
+
+  children: PropTypes.node
 };
 
-Row.displayName = 'Row';
+Row.displayName = "Row";
 
 export default Row;
