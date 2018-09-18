@@ -22,6 +22,7 @@ const Row = styled(props =>
     ${CSSProperty(props, breakpoint, 'justify-content')}
     ${CSSProperty(props, breakpoint, 'align-items')}
     ${CSSProperty(props, breakpoint, 'align-content')}
+    ${CSSProperty(props, breakpoint, 'flex')}
   `)}
 `;
 
@@ -124,6 +125,17 @@ Row.propTypes = {
       md: PropTypes.oneOf(alignContentOptions),
       lg: PropTypes.oneOf(alignContentOptions),
     }),
+
+    flex: PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.string,
+      PropTypes.shape({
+        xs: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+        sm: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+        md: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+        lg: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+      })
+    ]),
   ]),
 
   elementType: PropTypes.string,
