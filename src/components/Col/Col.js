@@ -35,6 +35,8 @@ const Col = styled(props =>
     // Responsive Flexbox properties
     ${CSSProperty(props, breakpoint, "order")}
     ${CSSProperty(props, breakpoint, "align-self")}
+    ${CSSProperty(props, breakpoint, "padding")}
+    ${CSSProperty(props, breakpoint, "margin")}
   `
     )};
 `;
