@@ -10,6 +10,7 @@
     "jest:watch": "yarn run jest -- --watch",
     "build": "babel -d dist/ src/",
     "prepublish": "yarn run build",
+    "prepare": "yarn run build",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "deploy-storybook": "storybook-to-ghpages"
