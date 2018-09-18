@@ -25,6 +25,8 @@ const Row = styled(props =>
     ${CSSProperty(props, breakpoint, "align-items")}
     ${CSSProperty(props, breakpoint, "align-content")}
     ${CSSProperty(props, breakpoint, "flex")}
+    ${CSSProperty(props, breakpoint, "padding")}
+    ${CSSProperty(props, breakpoint, "margin")}
   `
     )};
 `;
