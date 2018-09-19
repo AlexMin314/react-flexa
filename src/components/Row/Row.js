@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 import { themeProvider } from "../../theme";
-import { filterProps, mediaQuery, gutter, CSSProperty } from "../../helpers";
+import { filterProps, mediaQuery, CSSProperty } from "../../helpers";
 
 const Row = styled(props =>
   React.createElement(props.elementType, filterProps(props, Row.propTypes))
@@ -14,8 +14,6 @@ const Row = styled(props =>
   ${props =>
     themeProvider.breakpointsKeys(props).map(
       breakpoint => mediaQuery(props)[breakpoint]`
-    // Generate gutter
-    ${gutter.row(props, breakpoint)}
 
     // Responsive Flexbox properties
     ${CSSProperty(props, breakpoint, "display")}

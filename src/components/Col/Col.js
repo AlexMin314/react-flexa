@@ -7,7 +7,6 @@ import {
   filterProps,
   mediaQuery,
   columnWidth,
-  gutter,
   CSSProperty
 } from "../../helpers";
 
@@ -22,9 +21,6 @@ const Col = styled(props =>
       breakpoint => mediaQuery(props)[breakpoint]`
     // Generated Display
     ${CSSProperty(props, breakpoint, "display")}
-
-    // Generate gutter
-    ${gutter.col(props, breakpoint)}
 
     // Generate flex rule before width, this avoid override
     ${CSSProperty(props, breakpoint, "flex")}
